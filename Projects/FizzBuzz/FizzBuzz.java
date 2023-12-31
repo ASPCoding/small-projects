@@ -9,6 +9,8 @@ public class FizzBuzz{
 
         int endnum = num.nextInt();
 
+        num.close();
+
         for (int i = 1; i <= endnum; i++){
             if(i % 15 == 0){
                 System.out.println("Fizzbuzz");
