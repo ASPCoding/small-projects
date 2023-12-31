@@ -39,6 +39,7 @@ public class game {
                 validity = true;
             }
         }while(!validity);
+        scan.close();
         grid[Math.floorDiv(input-1,3)][(input-1)%3] = symbol[start];
         board = "   |   |   \n" + 
                 " " + grid[0][0] + " | " + grid[0][1] + " | "+ grid[0][2] +" \n" +

@@ -28,6 +28,7 @@ public class TicTacToe {
             if(answer == 2){
                 play = false;
             }
-    }
+        }
+        scan.close();
     }
 }
