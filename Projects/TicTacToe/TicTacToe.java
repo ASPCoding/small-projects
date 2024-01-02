@@ -11,6 +11,7 @@ public class TicTacToe {
         Scanner scan = new Scanner(System.in);
         boolean play = true;
         int counter = 0;
+        
         while(play){
             System.out.println("Tic-Tac-Toe \n");
             for(int i = 0; i < menu.size(); i++){

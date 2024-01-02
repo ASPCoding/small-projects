@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class game {
     private String[][] grid = {
-        {"", "", ""},
-        {"", "", ""},
-        {"", "", ""}
+        {"1", "2", "3"},
+        {"4", "5", "6"},
+        {"7", "8", "9"}
     };
     private String board;
     private int start;
-    private String[] symbol = {"",""};
+    private String[] symbol = {"o","x"};
     private String winner = "";
     public game(){
         board = "   |   |   \n" + 
@@ -25,16 +25,7 @@ public class game {
                 " "+ grid[2][0] +" | "+ grid[2][1] +" | "+ grid[2][2] +" \n" +
                 "   |   |   \n" ;
         start = (int) (Math.random()*2);
-        symbol[0] = "o";
-        symbol[1] = "x";
-        int count = 1; 
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; i++){
-                grid[i][j] = Integer.toString(count);
-                count++;
-            }
         }
-    }
     public int input(){
         Scanner scan = new Scanner(System.in);
         boolean validity = true;
