@@ -26,7 +26,7 @@ public class TicTacToe {
                 while(!games.get(counter).check()){
                     System.out.println(games.get(counter).getBoard());
                     System.out.println(games.get(counter).getSymbol() + "'s turn");
-                    games.get(counter).turn();
+                    games.get(counter).turn(games.get(counter).input());
                 }
                 System.out.println(games.get(counter).getWinner() + " wins!");
                 if(counter == 0){

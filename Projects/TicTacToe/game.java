@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class game {
     private String[][] grid = {
-        {"1", "2", "3"},
-        {"4", "5", "6"},
-        {"7", "8", "9"}
+        {"", "", ""},
+        {"", "", ""},
+        {"", "", ""}
     };
     private String board;
     private int start;
-    private String[] symbol = {"o","x"};
+    private String[] symbol = {"",""};
     private String winner = "";
     public game(){
         board = "   |   |   \n" + 
@@ -25,8 +25,17 @@ public class game {
                 " "+ grid[2][0] +" | "+ grid[2][1] +" | "+ grid[2][2] +" \n" +
                 "   |   |   \n" ;
         start = (int) (Math.random()*2);
+        symbol[0] = "o";
+        symbol[1] = "x";
+        int count = 1; 
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; i++){
+                grid[i][j] = Integer.toString(count);
+                count++;
+            }
+        }
     }
-    public void turn(){
+    public int input(){
         Scanner scan = new Scanner(System.in);
         boolean validity = true;
         int input = scan.nextInt();
@@ -39,6 +48,9 @@ public class game {
                 validity = true;
             }
         }while(!validity);
+        return input;
+    }
+    public void turn(int input){
         grid[Math.floorDiv(input-1,3)][(input-1)%3] = symbol[start];
         board = "   |   |   \n" + 
                 " " + grid[0][0] + " | " + grid[0][1] + " | "+ grid[0][2] +" \n" +
@@ -85,5 +97,14 @@ public class game {
     }
     public String getWinner(){
         return winner;
+    }
+    public String[][] getGrid(){
+        return grid;
+    }
+    public int getStart(){
+        return start;
+    }
+    public String[] getSymbolList(){
+        return symbol;
     }
 }
