@@ -12,6 +12,7 @@ public class game {
     private int start;
     private String[] symbol = {"o","x"};
     private String winner = "";
+    private int turnCount;
     public game(){
         board = "   |   |   \n" + 
                 " " + grid[0][0] + " | " + grid[0][1] + " | "+ grid[0][2] +" \n" +
@@ -25,6 +26,7 @@ public class game {
                 " "+ grid[2][0] +" | "+ grid[2][1] +" | "+ grid[2][2] +" \n" +
                 "   |   |   \n" ;
         start = (int) (Math.random()*2);
+        turnCount = 0;
         }
     public int input(){
         Scanner scan = new Scanner(System.in);
@@ -55,6 +57,7 @@ public class game {
                 " "+ grid[2][0] +" | "+ grid[2][1] +" | "+ grid[2][2] +" \n" +
                 "   |   |   \n" ;
         start = (start-1)*-1;
+        turnCount++;
     }
     public boolean check(){
         for(int i = 0;i < grid.length; i++){
@@ -77,7 +80,10 @@ public class game {
             winner = grid[0][2];
             return true;
         }
-
+        if(turnCount == 9){
+            winner = "Nobody";
+            return true;
+        }
         return false;
     }
     public String getBoard(){
@@ -97,5 +103,8 @@ public class game {
     }
     public String[] getSymbolList(){
         return symbol;
+    }
+    public String toString(){
+        return (board + "\n" + getWinner() + " won.");
     }
 }
