@@ -1,7 +1,6 @@
 package Projects.TicTacToe;
 import java.util.Scanner;
 
-
 public class game {
     private String[][] grid = {
         {"1", "2", "3"},
@@ -104,7 +103,15 @@ public class game {
     public String[] getSymbolList(){
         return symbol;
     }
+    public void play(int c){
+        while(!check()){
+            System.out.println(getBoard());
+            System.out.println(getSymbol() + "'s turn\n");
+            turn(input());
+        }
+        System.out.println(getWinner() + " wins!");
+    }
     public String toString(){
-        return (board + "\n" + getWinner() + " won.");
+        return (board + "\n" + getWinner() + " won.\n");
     }
 }
